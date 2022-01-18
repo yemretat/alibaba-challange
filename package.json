@@ -1,0 +1,41 @@
+{
+  "name": "trendyol_yunusemre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"nodemon server.ts\" \"nodemon data/db/seed.ts\" ",
+    "test": "mocha --require ts-node/register --watch-extensions ts 'tests/**/**/*.ts' --exit",
+    "seed": "nodemon data/db/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/node": "^17.0.0",
+    "@types/urijs": "^1.19.17",
+    "body-parser": "^1.19.1",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mocha": "^9.1.3",
+    "morgan": "^1.10.0",
+    "redis": "^2.8.0",
+    "sequelize": "^6.12.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "urijs": "^1.19.7",
+    "mysql2": "^2.3.3",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.0.0",
+    "@types/morgan": "^1.9.3",
+    "@types/redis": "^4.0.11",
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15"
+  }
+}

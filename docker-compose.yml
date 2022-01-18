@@ -1,0 +1,37 @@
+version: '3' #docker compose version
+services:
+  trendyol-challange:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: trendyol_challange
+    ports:
+     - "5000:5000"
+    container_name: trendyol-challange_container
+    networks:
+      - trendyol-network
+    links:
+      - mysql_image
+      - redis_image
+  mysql:
+    image: "mysql"
+    ports:
+      - "3306:3306"
+    container_name: mysql_image
+    networks:
+      - trendyol-network
+    environment:
+      MYSQL_DATABASE: 'trendyol_case'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'admin'
+  redis:
+    image: "redis:alpine"
+    expose:
+     - "6379"
+    ports:
+     - "6379:6379"
+    networks:
+      - trendyol-network
+    container_name: redis_image
+networks:
+      trendyol-network:
